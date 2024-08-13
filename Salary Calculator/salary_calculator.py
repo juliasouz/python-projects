@@ -31,10 +31,6 @@ ttk.Label(root, text="Deductions:").grid(row=4, column=0, padx=10, pady=5)
 deductions_entry = ttk.Entry(root)
 deductions_entry.grid(row=4, column=1, padx=10, pady=5)
 
-ttk.Button(root, text="Calculate", command=calculate_salary).grid(row=5, column=0, columnspan=2, pady=10)
-
-ttk.Label(root, textvariable=result).grid(row=6, column=0, columnspan=2, pady=10)
-
 def calculate_salary():
     try:
         hours = float(hours_entry.get())
@@ -51,6 +47,10 @@ def calculate_salary():
         result.set(f"The net salary is: ${net_salary:.2f}")
     except ValueError:
         messagebox.showerror("Error", "Please enter valid numeric values.")
+
+ttk.Button(root, text="Calculate", command=calculate_salary).grid(row=5, column=0, columnspan=2, pady=10)
+
+ttk.Label(root, textvariable=result).grid(row=6, column=0, columnspan=2, pady=10)
 
 #Starting the interface loop
 root.mainloop()
